@@ -4,13 +4,10 @@ import useAnimeID from "@/hooks/useAnimeID";
 import  JPFlag  from "@/static/JP-Flag.svg";
 import { Card, CardBody, Chip, divider } from "@nextui-org/react";
 import Image from "next/image";
+
 export default function Anime_ID({ params }: { params: { anime_id: number } }) {
   const {
-    anime,
-    infoState,
-    handleClickGeneral,
-    handleClickPictures,
-    handleClickRelated,
+    anime
   } = useAnimeID({ params });
 
   return (
@@ -102,12 +99,7 @@ export default function Anime_ID({ params }: { params: { anime_id: number } }) {
               </div>
             </section>
           </div>
-          <section className="h-20 w-full flex flex-row gap-4">
-            <button onClick={handleClickGeneral}>General</button>
-            <button onClick={handleClickPictures}>Pictures</button>
-            <button onClick={handleClickRelated}>Related Anime</button>
-          </section>
-          <AnimeIDState status={infoState.state} anime={anime} />
+          <AnimeIDState anime={anime} />
         </div>
       )}
     </>

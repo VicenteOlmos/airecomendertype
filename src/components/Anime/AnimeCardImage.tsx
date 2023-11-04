@@ -11,7 +11,7 @@ interface Props {
 
 function AnimeCardImage({ anime, position, changeSide, fullSize }: Props) {
   return (
-    <Card className="flex flex-col w-full h-full">
+    <Card className="flex flex-col w-full h-full bg-slate-200">
       <CardHeader className="pt-2 px-4 flex-col ">
         <h4 className="font-bold text-large text-center">{anime.title}</h4>
       </CardHeader>

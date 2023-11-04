@@ -23,7 +23,7 @@ function UserList() {
           onSubmit={handleSubmit}
         >
           <div className="w-96">
-            <Input ref={usernameRef} type="text" label="Nombre de usuario" />
+            <Input classNames={{input:["text-black"]}}ref={usernameRef} type="text" label="Nombre de usuario" />
           </div>
           <Button type="submit">Get list</Button>
         </form>

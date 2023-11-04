@@ -8,9 +8,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const htmlClasses = `light`;
+  
   return (
-    <html lang="en" className={htmlClasses}>
+    <html lang="en">
       <body className="container m-auto grid min-h-screen grid-rows-[1fr] px-4">
         <main className="py-8">
           <Providers>

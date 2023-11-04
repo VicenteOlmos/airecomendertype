@@ -1,14 +1,20 @@
-import { InfoState } from "@/hooks/useAnimeID";
 import { AnimeDetail } from "@/types/AnimeDetail";
+import { Accordion, AccordionItem } from "@nextui-org/react";
+import React from "react";
 
 interface Props {
-    status:string
-    anime:AnimeDetail
+  anime: AnimeDetail;
 }
 
-export default function AnimeIDState({status,anime}:Props){
-    if (status === "GENERAL") {
-        return (
+export default function AnimeIDState({ anime }: Props): React.ReactNode {
+  const styles ={
+    backgroundColor:'#7FACC7',  
+    color:'black'
+  }
+  return (
+    <>
+      <Accordion selectionMode="multiple" variant="splitted" className={`pt-5`} >
+        <AccordionItem key="1"title="General" style={styles}>
           <div className="flex flex-row gap-4">
             <div className="justify-start flex-col">
               <p>Type:</p>
@@ -24,9 +30,8 @@ export default function AnimeIDState({status,anime}:Props){
               <p>{anime.nsfw}</p>
             </div>
           </div>
-        );
-      } else if (status === "PICTURES") {
-        return (
+        </AccordionItem>
+        <AccordionItem key="2" title="Pictures" style={styles}>
           <div className="flex flex-row justify-center flex-wrap gap-4">
             {anime.pictures.map((picture) => (
               <img
@@ -37,9 +42,8 @@ export default function AnimeIDState({status,anime}:Props){
               />
             ))}
           </div>
-        );
-      } else if (status === "RELATED") {
-        return (
+        </AccordionItem>
+        <AccordionItem key="3" title="Related Anime" style={styles}>
           <div className="flex flex-row justify-center flex-wrap gap-4">
             {anime.related_anime.map((related) => (
               <img
@@ -50,6 +54,8 @@ export default function AnimeIDState({status,anime}:Props){
               />
             ))}
           </div>
-        );
-      }
+        </AccordionItem>
+      </Accordion>
+    </>
+  );
 }
